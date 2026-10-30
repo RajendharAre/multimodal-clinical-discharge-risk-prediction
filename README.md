@@ -117,12 +117,7 @@ source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Then supply the two ignored artefacts:
 
-```
-data/hospital_anynimised.csv
-models/best_multimodal_model.pt
-```
 
 The weights are shared through the project's Google Drive folder. The dataset is not redistributed and is available only under its source agreement. Everything else — code, diagrams, preprocessing spec, metrics — is in the repository.
 
