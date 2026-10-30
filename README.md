@@ -8,7 +8,7 @@ Predicting **non-routine hospital discharge** — LAMA, discharge on request, or
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.x-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
 [![Test ROC-AUC](https://img.shields.io/badge/test%20ROC--AUC-0.8058-2ea44f)](#results)
 
-> **Research and portfolio project.** Trained on fully synthetic records. Not a medical device, not clinically validated.
+> **Research and portfolio project.** Built on a de-identified hospital discharge dataset. Not a medical device, not clinically validated.
 
 ---
 
@@ -36,7 +36,7 @@ A two-tower neural network fuses a **Bio_ClinicalBERT** encoding of the clinical
 | **Modalities** | Clinical text (complaints + hospital course + diagnosis) and structured vitals/labs |
 | **Model** | Bio_ClinicalBERT `[CLS]` (768-d) ⊕ tabular MLP (64-d) → 832 → 128 → 32 → 1 |
 | **Parameters** | 108.4 M |
-| **Data** | 5,000 synthetic inpatient records, 30.5% positive |
+| **Data** | 5,000 de-identified inpatient records, 30.5% positive |
 
 The target is discharge **disposition**, not mortality or readmission. Those are different outcomes and are deliberately out of scope.
 
@@ -70,7 +70,7 @@ Text is tokenised to 128 tokens and encoded by Bio_ClinicalBERT; the 768-d `[CLS
 
 ## Dataset
 
-5,000 synthetic inpatient records (35 columns, no missing values):
+5,000 de-identified inpatient records (35 columns, no missing values). Direct identifiers are removed: names are pseudonymised (`PAT_ANON_*`), admission and discharge days are stored as relative day offsets, and age and distance are binned into ranges.
 
 | Group | Fields |
 |---|---|
@@ -81,7 +81,7 @@ Text is tokenised to 128 tokens and encoded by Bio_ClinicalBERT; the 768-d `[CLS
 
 Class balance is 3,475 routine / 1,525 high-risk (30.5%), handled with a positive-class weight of 2.28 during training.
 
-The CSV and model weights are **not committed** (~3.4 MB and ~414 MB respectively; the repository is public). Place them as shown in [Getting started](#getting-started).
+Neither the CSV nor the model weights are committed (~3.4 MB and ~414 MB respectively). The dataset is not redistributed; access is governed by the source data agreement. Placement is shown in [Getting started](#getting-started).
 
 ## Repository layout
 
@@ -104,7 +104,7 @@ The CSV and model weights are **not committed** (~3.4 MB and ~414 MB respectivel
 └── .gitignore
 ```
 
-`src/` is the single source of truth. The notebook imports it rather than re-implementing the pipeline, so the two cannot drift.
+`src/` is the single source of truth. The notebook imports it rather than re-implementing the pipeline.
 
 ## Getting started
 
@@ -120,11 +120,11 @@ pip install -r requirements.txt
 Then supply the two ignored artefacts:
 
 ```
-data/synthetic_patient_records_5000_range_anonymized.csv
+data/hospital_anynimised.csv
 models/best_multimodal_model.pt
 ```
 
-Both are distributed through the project's Google Drive folder. Everything else — code, diagrams, preprocessing spec, metrics — is in the repository.
+The weights are shared through the project's Google Drive folder. The dataset is not redistributed and is available only under its source agreement. Everything else — code, diagrams, preprocessing spec, metrics — is in the repository.
 
 **Train** (GPU strongly recommended; ~10–15 min on a T4):
 
@@ -189,7 +189,7 @@ Three defects were found and fixed while hardening this pipeline:
 
 ## Limitations
 
-- **Synthetic data.** Every number here demonstrates the pipeline; none of it is clinical evidence.
+- **Single-source data.** Results come from one de-identified hospital dataset; there is no external or multi-centre validation, and this is not a medical device.
 - **Single seed.** Reported metrics come from one 80/20 split; no confidence intervals or repeated runs.
 - **Truncation.** Narratives are cut at 128 tokens; long hospital courses lose detail.
 - **No calibration.** Probabilities are not reliability-calibrated, so the threshold is a study-specific operating point rather than a transferable clinical cut-off.

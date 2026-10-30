@@ -31,7 +31,7 @@ from .dataset import BATCH_SIZE, MAX_LEN, PreparedData, make_loaders, prepare_da
 from .model import DEFAULT_TEXT_ENCODER, BioClinicalMultiModalFusion
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DATA = REPO_ROOT / "data" / "synthetic_patient_records_5000_range_anonymized.csv"
+DEFAULT_DATA = REPO_ROOT / "data" / "hospital_anynimised.csv"
 DEFAULT_MODELS_DIR = REPO_ROOT / "models"
 
 
