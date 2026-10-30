@@ -1,0 +1,50 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# ---- Virtual environments ----
+.venv/
+venv/
+env/
+
+# ---- Dataset ----
+# Synthetic records are distributed separately (Drive), keeping the repo lean
+# and avoiding re-publication of patient-shaped data.
+data/*.csv
+data/*.parquet
+data/*.xlsx
+
+# ---- Large model weights ----
+# best_multimodal_model.pt is ~414 MB and GitHub refuses files over 100 MB.
+# Keep weights on Google Drive / a release asset, or commit them with Git LFS.
+models/*.pt
+models/*.pth
+models/*.bin
+models/*.safetensors
+
+# ---- Legacy preprocessing pickles ----
+# src/ now writes models/preprocessor.json, which is small and version-portable.
+*.pkl
+
+# ---- Superseded diagram originals ----
+docs/_backup/
+
+# ---- Archives / local noise ----
+*.zip
+*.log
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+
+# ---- Secrets ----
+.env
+.env.*
+!.env.example
+
+
+data/

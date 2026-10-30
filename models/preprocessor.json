@@ -1,0 +1,115 @@
+{
+  "medians": [
+    52.0,
+    140.0,
+    87.0,
+    81.0,
+    96.0,
+    98.5,
+    17.0,
+    15.0,
+    14200.0,
+    1.0,
+    5.0,
+    2.0,
+    1.35,
+    12.2,
+    22.5
+  ],
+  "means": [
+    54.617125,
+    140.2475,
+    87.00375,
+    85.25075,
+    95.74125,
+    99.21525,
+    17.324,
+    14.56925,
+    28248.825,
+    0.82025,
+    4.824,
+    2.36075,
+    2.1565375,
+    11.598075,
+    20.925
+  ],
+  "scales": [
+    17.327787488146747,
+    17.852093539694444,
+    10.76555785537842,
+    17.662300938368706,
+    3.2037163478529123,
+    1.5998507547580805,
+    3.4100621695212534,
+    1.138290137662626,
+    33273.25402811356,
+    0.9063332375566947,
+    1.7860638286466695,
+    1.7287595082891085,
+    2.152766739824301,
+    2.97237006349731,
+    16.583237018145763
+  ],
+  "categories": [
+    [
+      "F",
+      "M"
+    ],
+    [
+      "Elective",
+      "Emergency",
+      "OPD Transfer"
+    ],
+    [
+      "Priority 1 (Resuscitation)",
+      "Priority 2 (Emergent)",
+      "Priority 3 (Urgent)",
+      "Priority 4 (Less Urgent)"
+    ],
+    [
+      "Direct Home",
+      "Emergency Room",
+      "OPD",
+      "Outer Clinic Transfer"
+    ],
+    [
+      "Day Shift (8 AM - 8 PM)",
+      "Night Shift (8 PM - 8 AM)"
+    ],
+    [
+      "Government Scheme",
+      "Private Health Insurance",
+      "Self-pay"
+    ],
+    [
+      "No",
+      "Yes"
+    ]
+  ],
+  "numeric_cols": [
+    "Age",
+    "Systolic_BP_mmHg",
+    "Diastolic_BP_mmHg",
+    "Heart_Rate_bpm",
+    "SpO2_Percent",
+    "Body_Temp_F",
+    "Respiratory_Rate_bpm",
+    "GCS_Score",
+    "Est_Out_Of_Pocket_Expense_INR",
+    "Prior_Hospitalizations_12M",
+    "Active_Prescription_Count",
+    "Charlson_Comorbidity_Index",
+    "Admission_Creatinine_mg_dL",
+    "Admission_Hb_g_dL",
+    "Distance_From_Hospital_km"
+  ],
+  "categorical_cols": [
+    "Sex",
+    "Admission_Type",
+    "Triage_Priority",
+    "Referral_Source",
+    "Admission_Shift",
+    "Insurance_Type",
+    "Primary_Caregiver_Available"
+  ]
+}
